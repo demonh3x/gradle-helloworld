@@ -11,12 +11,29 @@ helloWorld.MainTest > theTruth FAILED
     java.lang.AssertionError at MainTest.java:11
 
 1 test completed, 1 failed
-:test FAILED
 
 ... more build information ...
 ```
 
-It will also generate reports:
+Running `gradle test --info` will print like:
+
+```
+... build information ...
+
+helloWorld.MainTest > theTruth FAILED
+    java.lang.AssertionError: 
+    Expected: is <false>
+         but: was <true>
+        at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+        at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:8)
+        at helloWorld.MainTest.theTruth(MainTest.java:11)
+
+1 test completed, 1 failed
+
+... more build information ...
+```
+
+They will also generate more detailed reports:
 * HTML: at `build/reports/tests/index.html`
 * XML: at `build/test-results/TEST-helloWorld.MainTest.xml`
 * Binary: at `build/test-results/binary/test/*`
